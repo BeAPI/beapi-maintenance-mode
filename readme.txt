@@ -90,8 +90,8 @@ Just follow the referring note into the plugin documentation.
 == Changelog ==
 
 = 1.0.1 - 02 Nov 2018 =
-- Add [#2](https://github.com/BeAPI/beapi-maintenance-mode/issues/2) : customize the maintenance mode template
-- Add [#1](https://github.com/BeAPI/beapi-maintenance-mode/issues/1) : add whitelisted IPs
+- Add [#2](https://github.com/BeAPI/beapi-maintenance-mode/issues/2) : customize the maintenance mode template.
+- Add [#1](https://github.com/BeAPI/beapi-maintenance-mode/issues/1) : add whitelisted IPs.
 - Add [#4](https://github.com/BeAPI/beapi-maintenance-mode/issues/4) : implement maintenance mode to not disturb the wp-activate process.
 
 = 1.0.0 - 02 Nov 2018 =
