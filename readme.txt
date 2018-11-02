@@ -5,11 +5,11 @@ Tags: Admin, Maintenance, Under Construction, Development, 503, SEO, Offline, Mu
 Requires at least: 4.7
 Requires php: 5.6
 Tested up to: 4.9.8
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv3 or later
 License URI: https://github.com/BeAPI/beapi-maintenance-mode/blob/master/LICENSE.md
 
-Puts your WordPress site into maintenance mode by sending a 'Error 410: Access Denied/Forbidden' status to all unauthenticated clients.
+Puts your WordPress site into maintenance mode by sending a 'Error 503: Access Denied/Forbidden' status to all unauthenticated clients.
 
 == Description ==
 
@@ -57,6 +57,9 @@ To facilitate the process of submitting an issue and quicker answer, we only use
 == Screenshots ==
 
 == Changelog ==
+
+= 1.0.1 - 02 Nov 2018 =
+- [#4](https://github.com/BeAPI/beapi-maintenance-mode/issues/4) : implement maintenance mode to not disturb the wp-activate process.
 
 = 1.0.0 - 02 Nov 2018 =
 - First release

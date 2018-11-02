@@ -16,7 +16,7 @@ class Helpers {
 	 *
 	 * @return bool
 	 */
-	static function is_maintenance_mode() {
+	public static function is_maintenance_mode() {
 		return ! is_user_logged_in() && ! self::is_allowed_ip() && ! self::is_ms_activate();
 	}
 
@@ -28,7 +28,7 @@ class Helpers {
 	 *
 	 * @return bool
 	 */
-	public function is_allowed_ip() {
+	public static function is_allowed_ip() {
 		/**
 		 * Allow to add/remove custom ips
 		 *
@@ -51,11 +51,11 @@ class Helpers {
 			// No current ip set to check against
 			return false;
 		}
-		$current_ip = preg_replace_callback( '/(\d+)/', [ $this, 'maintenance_replace_ip' ], $current_ip );
+		$current_ip = preg_replace_callback( '/(\d+)/', [ __SELF__, 'maintenance_replace_ip' ], $current_ip );
 
 		// Loop on each whitelist IP
 		foreach ( $whitelist_ips as $allowed_ip ) {
-			$allowed_ip = preg_replace_callback( '/(\d+)/', [ $this, 'maintenance_replace_ip' ], $allowed_ip );
+			$allowed_ip = preg_replace_callback( '/(\d+)/', [ __SELF__, 'maintenance_replace_ip' ], $allowed_ip );
 			// Not strict mode check because user ip and whitelist ips could not be the same type
 			if ( $current_ip == $allowed_ip ) {
 				// We found a match into the whitelist
@@ -75,9 +75,12 @@ class Helpers {
 	 *
 	 * @return bool
 	 */
-	public function is_ms_activate() {
-		// Check the activate process
-		return false;
+	public static function is_ms_activate() {
+		if ( empty( $_SERVER['SCRIPT_NAME'] ) ) {
+			return false;
+		}
+
+		return in_array( ltrim( $_SERVER['SCRIPT_NAME'], '/' ), [ 'wp-login.php', 'wp-activate.php' ] );
 	}
 
 	/**
