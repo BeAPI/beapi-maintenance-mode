@@ -1,5 +1,5 @@
 === BEAPI - Maintenance Mode ===
-Contributors: beapi, maximeculea
+Contributors: beapi, maximeculea, rahe
 Donate link: http://paypal.me/BeAPI
 Tags: Admin, Maintenance, Under Construction, Development, 503, SEO, Offline, Multisite
 Requires at least: 4.7

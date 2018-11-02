@@ -8,7 +8,7 @@
  Author URI: https://beapi.fr
  Domain Path: languages
  Text Domain: beapi-maintenance-mode-mode
- Contributors: Maxime Culea
+ Contributors: Maxime Culea, Nicolas Juen
 
  ----
 
