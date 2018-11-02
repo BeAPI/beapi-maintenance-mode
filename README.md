@@ -14,8 +14,11 @@ While in maintenance mode, it was think to :
 
 TODO :
 - nothing to do
-- customize the maintenance mode with custom file
-- whitelist
+- customize the maintenance mode with custom file (filter)
+- - filter
+- - template look like
+- whitelist (filter)
+- - exemple with filter
 
 # Requirements
 
