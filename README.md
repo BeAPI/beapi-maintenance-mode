@@ -12,9 +12,10 @@ While in maintenance mode, it was think to :
 
 # How ?
 
--- nothing to do
--- customize the maintenance mode with custom file
--- whitelist
+TODO :
+- nothing to do
+- customize the maintenance mode with custom file
+- whitelist
 
 # Requirements
 
@@ -32,6 +33,12 @@ While in maintenance mode, it was think to :
 
 - Add repository source : `{ "type": "vcs", "url": "https://github.com/BeAPI/beapi-maintenance-mode" }`.
 - Include `"beapi/beapi-maintenance-mode": "dev-master"` in your composer file for last master's commits or a tag released.
+
+# For developers
+
+TODO:
+- so its possible possible to activate by composer
+- or use our dedicated composer library for maintenance
 
 ## Contributing
 

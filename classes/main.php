@@ -1,5 +1,10 @@
 <?php namespace BEAPI\Maintenance_Mode;
 
+// don't load directly
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '-1' );
+}
+
 /**
  * The purpose of the main class is to init all the plugin base code like :
  *  - Taxonomies
@@ -15,80 +20,30 @@ class Main {
 	use Singleton;
 
 	protected function init() {
-		if ( function_exists( 'add_filter' ) ):
-			add_action( 'get_header', 'maintenance_content' );
-			add_feed_actions();
-		else:
-			// Prevent direct invocation by user agents.
-			die( 'Get off my lawn!' );
-		endif;
+		add_action( 'get_header', [ $this, 'maintenance_content' ] );
+		add_filter( 'status_header', [ $this, 'maintenance_header' ], 10, 4 );
 
-		if ( ! function_exists( 'maintenance_feed' ) ):
-			function maintenance_feed() {
-				if ( ! is_user_logged_in() ) {
-					status_header( 410 );
-					die( '<?xml version="1.0" encoding="UTF-8"?>' . '<status>Access Denied/Forbidden.</status>' );
-				}
-			}
-		endif;
+		add_action( 'do_feed_rdf', [ $this, 'maintenance_feed' ], 1 );
+		add_action( 'do_feed_rss', [ $this, 'maintenance_feed' ], 1 );
+		add_action( 'do_feed_rss2', [ $this, 'maintenance_feed' ], 1 );
+		add_action( 'do_feed_atom', [ $this, 'maintenance_feed' ], 1 );
 
-		if ( ! function_exists( 'add_feed_actions' ) ):
-			function add_feed_actions() {
-				$feeds = array( 'rdf', 'rss', 'rss2', 'atom' );
-				foreach ( $feeds as $feed ) {
-					add_action( 'do_feed_' . $feed, 'maintenance_feed', 1, 1 );
-				}
-			}
-		endif;
-
-		if ( true === is_allowed_ip() ) {
+		if ( true === $this->is_allowed_ip() ) {
 			return false;
 		}
+	}
 
-		if ( ! function_exists( 'maintenance_content' ) ):
-			function maintenance_content() {
-				if ( ! is_user_logged_in() ) {
-					$current_ip = isset( $_SERVER['REMOTE_ADDR'] ) ? $_SERVER['REMOTE_ADDR'] : '';
-					status_header( 410 );
-					$page = <<<EOT
-<!DOCTYPE html>
-<html>
-<head>
-<title>Service unavailable.</title>
-<style>
-body {
-    background-color: #e0dcdc;
-    color: #444;
-    font-family: "Open Sans",sans-serif;
-    font-size: 13px;
-    line-height: 1.4em;
-}
-body > div {
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 0 5px #888;
-    margin: 3em auto;
-    padding: 2em;
-    text-align: center;
-    width: 20%;
-    min-width: 20em;
-}
-</style>
-</head>
-<body>
-<div>
-<h1>Access Denied/Forbidden.</h1>
-<p>Your IP Address : {$current_ip}</p>
-<p>Please contact your webmaster&hellip;</p>
-</div>
-</body>
-</html>
-EOT;
-					die( $page );
-				}
-			}
-		endif;
+	function maintenance_header( $status_header, $header, $text, $protocol ) {
+		if ( $this->check_if_allowed() ) {
+			return $protocol;
+		}
+
+		return "$protocol 503 Service Unavailable";
+	}
+
+	function check_if_allowed() {
+		return is_user_logged_in();
+		//return $this->is_allowed_ip() || is_user_logged_in();
 	}
 
 	function is_allowed_ip() {
@@ -135,5 +90,58 @@ EOT;
 
 	function maintenance_replace_ip( $matches ) {
 		return sprintf( "%03d", $matches[1] );
+	}
+
+	function maintenance_feed() {
+		if ( $this->check_if_allowed() ) {
+			return;
+		}
+
+		status_header( 503 );
+		die( '<?xml version="1.0" encoding="UTF-8"?><status>Access Denied/Forbidden.</status>' );
+	}
+
+	function maintenance_content() {
+		if ( $this->check_if_allowed() ) {
+			return;
+		}
+		$current_ip = isset( $_SERVER['REMOTE_ADDR'] ) ? $_SERVER['REMOTE_ADDR'] : '';
+		status_header( 503 );
+		$page = <<<EOT
+<!DOCTYPE html>
+<html>
+<head>
+<title>Service unavailable.</title>
+<style>
+body {
+    background-color: #e0dcdc;
+    color: #444;
+    font-family: "Open Sans",sans-serif;
+    font-size: 13px;
+    line-height: 1.4em;
+}
+body > div {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #888;
+    margin: 3em auto;
+    padding: 2em;
+    text-align: center;
+    width: 20%;
+    min-width: 20em;
+}
+</style>
+</head>
+<body>
+<div>
+<h1>Access Denied/Forbidden.</h1>
+<p>Your IP Address : {$current_ip}</p>
+<p>Please contact your webmaster&hellip;</p>
+</div>
+</body>
+</html>
+EOT;
+		die( $page );
 	}
 }

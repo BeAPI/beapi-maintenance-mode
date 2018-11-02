@@ -23,9 +23,16 @@ While in maintenance mode, it was think to :
 
 ## How ?
 
--- nothing to do
--- customize the maintenance mode with custom file
--- whitelist
+TODO :
+- nothing to do
+- customize the maintenance mode with custom file
+- whitelist
+
+## For developers
+
+TODO:
+- so its possible possible to activate by composer
+- or use our dedicated composer library for maintenance
 
 ## Who ?
 
