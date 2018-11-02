@@ -39,7 +39,7 @@ But you can customize this template using the following implementation on [githu
 ### Composer
 
 It is possible to activate the plugin by composer `wp plugin activate beapi-maitenance-mode [--network]`
-If you are a developer and the plugin is not instalated, you could also just use a [dedicated composer command](https://github.com/BeAPI/composer-go-maintenance).
+If you are a developer and the plugin is not installed, you could also just use a [dedicated composer command](https://github.com/BeAPI/composer-go-maintenance).
 
 ## Who ?
 
