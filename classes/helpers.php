@@ -17,7 +17,7 @@ class Helpers {
 	 * @return bool
 	 */
 	static function is_maintenance_mode() {
-		return is_user_logged_in() || self::is_allowed_ip() || self::is_ms_activate();
+		return ! is_user_logged_in() && ! self::is_allowed_ip() && ! self::is_ms_activate();
 	}
 
 	/**
@@ -76,6 +76,7 @@ class Helpers {
 	 * @return bool
 	 */
 	public function is_ms_activate() {
+		return true;
 		// Check the activate process
 	}
 
