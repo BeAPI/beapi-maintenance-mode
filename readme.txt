@@ -26,8 +26,6 @@ While in maintenance mode, it was think to :
 We would like to precise that this plugin is simple as pie, anyone can use it but still dev-oriented. The idea is to not have a bunch of options to set before using it, in fact not only one! Because, it is a really pain when working on a multisite.
 That is why there as still two filter for developers, which come in the section below.
 
-## For developers
-
 ### IPs whitelist
 
 In certain conditions, it is useful to not trigger the maintenance mode. That's why you can add a file to your project (mu-plugins) to specify a range of IPs to whitelist. At the agency we use it with our VPN IP.
@@ -35,13 +33,13 @@ Please find an example of implementation on the following [github](https://githu
 
 ### Customize the maintenance mode template
 
-TODO
+By default it is the file located in the templates folder : [maintenance.php](https://github.com/BeAPI/beapi-maintenance-mode/blob/master/templates/maintenance.php)
+But you can customize this template using the following implementation on [github](https://github.com/BeAPI/bea-plugin-defaults/blob/master/default-beapi-maintenance-mode.php), with a custom template placed wherever you want.
 
 ### Composer
 
-TODO :
-- so its possible possible to activate by composer
-- or use our dedicated composer library for maintenance
+It is possible to activate the plugin by composer `wp plugin activate beapi-maitenance-mode [--network]`
+If you are a developer and the plugin is not instalated, you could also just use a [dedicated composer command](https://github.com/BeAPI/composer-go-maintenance).
 
 ## Who ?
 

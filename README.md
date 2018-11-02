@@ -32,13 +32,14 @@ Please find an example of implementation on the following [github](https://githu
 
 ## Customize the maintenance mode template
 
-TODO
+By default it is the file located in the templates folder : [maintenance.php](https://github.com/BeAPI/beapi-maintenance-mode/blob/master/templates/maintenance.php)
+But you can customize this template using the following implementation on [github](https://github.com/BeAPI/bea-plugin-defaults/blob/master/default-beapi-maintenance-mode.php), with a custom template placed wherever you want.
 
 ## Composer
 
-TODO :
-- so its possible possible to activate by composer
-- or use our dedicated composer library for maintenance
+
+It is possible to activate the plugin by composer `wp plugin activate beapi-maitenance-mode [--network]`
+If you are a developer and the plugin is not instalated, you could also just use a [dedicated composer command](https://github.com/BeAPI/composer-go-maintenance).
 
 # Requirements
 
