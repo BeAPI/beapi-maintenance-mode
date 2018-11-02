@@ -27,73 +27,18 @@ class Main {
 		add_action( 'do_feed_rss', [ $this, 'maintenance_feed' ], 1 );
 		add_action( 'do_feed_rss2', [ $this, 'maintenance_feed' ], 1 );
 		add_action( 'do_feed_atom', [ $this, 'maintenance_feed' ], 1 );
-
-		if ( true === $this->is_allowed_ip() ) {
-			return false;
-		}
 	}
 
 	function maintenance_header( $status_header, $header, $text, $protocol ) {
-		if ( $this->check_if_allowed() ) {
+		if ( Helpers::is_maintenance_mode() ) {
 			return $protocol;
 		}
 
 		return "$protocol 503 Service Unavailable";
 	}
 
-	function check_if_allowed() {
-		return is_user_logged_in();
-		//return $this->is_allowed_ip() || is_user_logged_in();
-	}
-
-	function is_allowed_ip() {
-		// Get user IP
-		$current_ip = isset( $_SERVER['REMOTE_ADDR'] ) ? $_SERVER['REMOTE_ADDR'] : '';
-
-		// Set flag to false
-		$is_allowed_ip = false;
-
-		// No IP file
-		if ( ! is_file( dirname( __FILE__ ) . '/whitelist.txt' ) ) {
-			return true;
-		}
-
-		// Get IP from conf webserver
-		$allowed_ips = file( dirname( __FILE__ ) . '/whitelist.txt' );
-
-		// No allowed IP ? Allow all IP !
-		if ( empty( $allowed_ips ) ) {
-			return false;
-		}
-
-		// Trim array
-		$allowed_ips = array_map( 'trim', $allowed_ips );
-
-		// Loop on each IP
-		foreach ( $allowed_ips as $allowed_ip ) {
-			// Skip lines starting with # ! Comments !
-			if ( '#' === substr( $allowed_ip, 0, 1 ) || 0 === strlen( $allowed_ip ) ) {
-				continue;
-			}
-
-			// IP is allowed ? Make sure we don't depend on the representation by justifying numbers with 3 decimals.
-			$current_ip = preg_replace_callback( '/(\d+)/', 'maintenance_replace_ip', $current_ip );
-			$allowed_ip = preg_replace_callback( '/(\d+)/', 'maintenance_replace_ip', $allowed_ip );
-
-			if ( 0 === strpos( $current_ip, $allowed_ip ) ) {
-				$is_allowed_ip = true;
-			}
-		}
-
-		return $is_allowed_ip;
-	}
-
-	function maintenance_replace_ip( $matches ) {
-		return sprintf( "%03d", $matches[1] );
-	}
-
 	function maintenance_feed() {
-		if ( $this->check_if_allowed() ) {
+		if ( Helpers::is_maintenance_mode() ) {
 			return;
 		}
 
@@ -102,7 +47,7 @@ class Main {
 	}
 
 	function maintenance_content() {
-		if ( $this->check_if_allowed() ) {
+		if ( Helpers::is_maintenance_mode() ) {
 			return;
 		}
 		$current_ip = isset( $_SERVER['REMOTE_ADDR'] ) ? $_SERVER['REMOTE_ADDR'] : '';
