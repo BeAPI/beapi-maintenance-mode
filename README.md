@@ -1,6 +1,6 @@
 <a href="https://beapi.fr">![Be API Github Banner](.wordpress.org/banner-github.png)</a>
 
-# BEAPI - Maintenance Mode
+# Be API - Maintenance Mode
 
 This simple and lightweight WordPress maintenance plugin puts your WordPress site into maintenance mode. The *major advantage* compared to existing plugins, is that there is no options, it is *ready to use*!
 
@@ -20,6 +20,26 @@ TODO :
 - whitelist (filter)
 - - exemple with filter
 
+## How ?
+
+We would like to precise that this plugin is simple as pie, anyone can use it but still dev-oriented. The idea is to not have a bunch of options to set before using it, in fact not only one! Because, it is a really pain when working on a multisite.
+That is why there as still two filter for developers, which come in the section below.
+
+## IPs whitelist
+
+In certain conditions, it is useful to not trigger the maintenance mode. That's why you can add a file to your project (mu-plugins) to specify a range of IPs to whitelist. At the agency we use it with our VPN IP.
+Please find an example of implementation on the following [github](https://github.com/BeAPI/bea-plugin-defaults/blob/master/default-beapi-maintenance-mode.php) : https://github.com/BeAPI/bea-plugin-defaults/blob/master/default-beapi-maintenance-mode.php
+
+## Customize the maintenance mode template
+
+TODO
+
+## Composer
+
+TODO :
+- so its possible possible to activate by composer
+- or use our dedicated composer library for maintenance
+
 # Requirements
 
 - Tested up to 4.9.8
@@ -36,12 +56,6 @@ TODO :
 
 - Add repository source : `{ "type": "vcs", "url": "https://github.com/BeAPI/beapi-maintenance-mode" }`.
 - Include `"beapi/beapi-maintenance-mode": "dev-master"` in your composer file for last master's commits or a tag released.
-
-# For developers
-
-TODO:
-- so its possible possible to activate by composer
-- or use our dedicated composer library for maintenance
 
 ## Contributing
 
@@ -63,4 +77,4 @@ If you really like what we do or want to thank us for our quick work, feel free 
 
 ## License
 
-BEAPI - Maintenance Mode is licensed under the [GPLv3 or later](LICENSE.md).
+Be API - Maintenance Mode is licensed under the [GPLv3 or later](LICENSE.md).

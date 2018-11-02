@@ -1,4 +1,4 @@
-=== BEAPI - Maintenance Mode ===
+=== Be API - Maintenance Mode ===
 Contributors: beapi, maximeculea, rahe
 Donate link: http://paypal.me/BeAPI
 Tags: Admin, Maintenance, Under Construction, Development, 503, SEO, Offline, Multisite
@@ -23,14 +23,23 @@ While in maintenance mode, it was think to :
 
 ## How ?
 
-TODO :
-- nothing to do
-- customize the maintenance mode with custom file
-- whitelist
+We would like to precise that this plugin is simple as pie, anyone can use it but still dev-oriented. The idea is to not have a bunch of options to set before using it, in fact not only one! Because, it is a really pain when working on a multisite.
+That is why there as still two filter for developers, which come in the section below.
 
 ## For developers
 
-TODO:
+### IPs whitelist
+
+In certain conditions, it is useful to not trigger the maintenance mode. That's why you can add a file to your project (mu-plugins) to specify a range of IPs to whitelist. At the agency we use it with our VPN IP.
+Please find an example of implementation on the following [github](https://github.com/BeAPI/bea-plugin-defaults/blob/master/default-beapi-maintenance-mode.php) : https://github.com/BeAPI/bea-plugin-defaults/blob/master/default-beapi-maintenance-mode.php
+
+### Customize the maintenance mode template
+
+TODO
+
+### Composer
+
+TODO :
 - so its possible possible to activate by composer
 - or use our dedicated composer library for maintenance
 
