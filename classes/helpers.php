@@ -39,7 +39,7 @@ class Helpers {
 		 *
 		 * @return array
 		 */
-		$whitelist_ips = apply_filters( 'bea.beautiful_flexible.images', [] );
+		$whitelist_ips = apply_filters( 'beapi.maintenance_mode.whitelist_ips', [] );
 		if ( empty( $whitelist_ips ) ) {
 			// No whitelist, then everybody is allowed
 			return false;
@@ -102,7 +102,7 @@ class Helpers {
 	 *
 	 * @return string
 	 */
-	static function get_teamplate_path() {
+	static function get_teaplate_path() {
 		$default = BEAPI_MAINTENANCE_MODE_DIR . 'templates/maintenance.php';
 
 		/**
