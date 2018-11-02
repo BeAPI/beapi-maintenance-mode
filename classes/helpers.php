@@ -42,7 +42,7 @@ class Helpers {
 		$whitelist_ips = apply_filters( 'bea.beautiful_flexible.images', [] );
 		if ( empty( $whitelist_ips ) ) {
 			// No whitelist, then everybody is allowed
-			return true;
+			return false;
 		}
 
 		// Get user IP
@@ -76,8 +76,8 @@ class Helpers {
 	 * @return bool
 	 */
 	public function is_ms_activate() {
-		return true;
 		// Check the activate process
+		return false;
 	}
 
 	/**
@@ -92,5 +92,34 @@ class Helpers {
 	 */
 	private function maintenance_replace_ip( $matches ) {
 		return sprintf( "%03d", $matches[1] );
+	}
+
+	/**
+	 * Get the maintenance template path
+	 *
+	 * @author Maxime CULEA
+	 * @since  1.0.0
+	 *
+	 * @return string
+	 */
+	static function get_teamplate_path() {
+		$default = BEAPI_MAINTENANCE_MODE_DIR . 'templates/maintenance.php';
+
+		/**
+		 * Filter maintenance template path to add a custom one
+		 *
+		 * @params string $whitelist_ips : The path to the custom template
+		 *
+		 * @author Maxime CULEA
+		 * @since  1.0.0
+		 *
+		 * @return array
+		 */
+		$template = apply_filters( 'beapi.maintenance_mode.template.path', $default );
+		if ( empty( $template ) || ! file_exists( $template ) ) {
+			$template = $default;
+		}
+
+		return $template;
 	}
 }
