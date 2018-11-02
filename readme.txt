@@ -13,9 +13,9 @@ Puts your WordPress site into maintenance mode by sending a 'Error 503: Access D
 
 == Description ==
 
-This simple and lightweight WordPress maintenance plugin puts the site into maintenance mode. The *major advantage* compared to existing plugins, is that there is no options, it is *ready to use*!
+This simple and lightweight WordPress maintenance plugin puts the site into maintenance mode. The <b>major advantage</b>, compared to existing plugins, is that there are no options, it is <b>ready to use</b>!
 
-While in maintenance mode, it was think to :
+It was think, while in maintenance mode, to :
 - Not impact your SEO by sending a '503 Service Unavailable' status to all unauthenticated clients. This means that it will inhibits search engines from both losing your site's existing content and indexing your maintenance page as well, so your site will not lose its rankings while it is out of service. Content will even be hidden from consumers of the site's RSS or Atom feeds.
 - Make continually work the login/loggout process.
 - It handle the *activate process in multisite*, which a lot of existing plugins don't.
@@ -29,7 +29,7 @@ That is why there as still two filter for developers, which come in the section 
 ### IPs whitelist
 
 In certain conditions, it is useful to not trigger the maintenance mode. That's why you can add a file to your project (mu-plugins) to specify a range of IPs to whitelist. At the agency we use it with our VPN IP.
-Please find an example of implementation on the following [github](https://github.com/BeAPI/bea-plugin-defaults/blob/master/default-beapi-maintenance-mode.php) : https://github.com/BeAPI/bea-plugin-defaults/blob/master/default-beapi-maintenance-mode.php
+Please find an example of implementation on the following [github](https://github.com/BeAPI/bea-plugin-defaults/blob/master/default-beapi-maintenance-mode.php);
 
 ### Customize the maintenance mode template
 
@@ -62,6 +62,30 @@ To facilitate the process of submitting an issue and quicker answer, we only use
 - Site activate in the "Plugins" area of the admin.
 
 == Screenshots ==
+
+1. BEAPI Maintenance Mode triggered on site display.
+
+== Frequently Asked Questions ==
+
+= Do I have something to configure ? =
+
+No.
+
+That is the maine "feature" of this plugin. It is ready to use and it is pretty useful when working with multisite.
+
+= Can I use into a multisite ? =
+
+Yes.
+
+You just need to activate on each site or network wide, depending on the needs.
+
+= How can I add my IPs to whitelist ? =
+
+Just follow the referring note into the plugin documentation.
+
+= How can change the template displayed in case of maintenance ? =
+
+Just follow the referring note into the plugin documentation.
 
 == Changelog ==
 
