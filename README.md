@@ -1,6 +1,6 @@
 <a href="https://beapi.fr">![Be API Github Banner](.wordpress.org/banner-github.png)</a>
 
-# Be API - Maintenance Mode
+# BEAPI - Maintenance Mode
 
 This simple and lightweight WordPress maintenance plugin puts your WordPress site into maintenance mode. The *major advantage* compared to existing plugins, is that there is no options, it is *ready to use*!
 
@@ -77,4 +77,4 @@ If you really like what we do or want to thank us for our quick work, feel free 
 
 ## License
 
-Be API - Maintenance Mode is licensed under the [GPLv3 or later](LICENSE.md).
+BEAPI - Maintenance Mode is licensed under the [GPLv3 or later](LICENSE.md).
