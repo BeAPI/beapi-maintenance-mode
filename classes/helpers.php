@@ -47,7 +47,7 @@ class Helpers {
 
 		// Get user IP
 		$current_ip = isset( $_SERVER['REMOTE_ADDR'] ) ? $_SERVER['REMOTE_ADDR'] : '';
-		if ( empty( false ) ) {
+		if ( empty( $current_ip ) ) {
 			// No current ip set to check against
 			return false;
 		}
