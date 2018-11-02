@@ -1,0 +1,29 @@
+{
+	"name":"bea/beapi-maintenance-mode",
+	"description":"Puts your WordPress site into maintenance mode.",
+	"keywords":[
+		"WordPress",
+		"Admin",
+		"Maintenance",
+		"Under Construction",
+		"Development",
+		"503",
+		"SEO",
+		"Offline",
+		"Multisite"
+	],
+	"homepage":"https://github.com/BeAPI/beapi-maintenance-mode",
+	"authors":[
+		{
+			"name":"Be API",
+			"email":"technique@beapi.fr",
+			"homepage":"https://beapi.fr/"
+		}
+	],
+	"type":"wordpress-plugin",
+	"minimum-stability":"stable",
+	"license":"GPL-3.0+",
+	"require":{
+		"php":">=5.6.0"
+	}
+}
