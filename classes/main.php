@@ -29,16 +29,35 @@ class Main {
 		add_action( 'do_feed_atom', [ $this, 'maintenance_feed' ], 1 );
 	}
 
+	/**
+	 * Change the header if maintenance mode
+	 *
+	 * @param $status_header
+	 * @param $header
+	 * @param $text
+	 * @param $protocol
+	 *
+	 * @author Maxime CULEA
+	 * @since  1.0.0
+	 *
+	 * @return string
+	 */
 	function maintenance_header( $status_header, $header, $text, $protocol ) {
-		if ( Helpers::is_maintenance_mode() ) {
+		if ( ! Helpers::is_maintenance_mode() ) {
 			return $protocol;
 		}
 
 		return "$protocol 503 Service Unavailable";
 	}
 
+	/**
+	 * Change headers and content for feeds if maintenance mode
+	 *
+	 * @author Maxime CULEA
+	 * @since  1.0.0
+	 */
 	function maintenance_feed() {
-		if ( Helpers::is_maintenance_mode() ) {
+		if ( ! Helpers::is_maintenance_mode() ) {
 			return;
 		}
 
@@ -46,47 +65,19 @@ class Main {
 		die( '<?xml version="1.0" encoding="UTF-8"?><status>Access Denied/Forbidden.</status>' );
 	}
 
+	/**
+	 * Display the maintenance mode template if maintenance mode
+	 *
+	 * @author Maxime CULEA
+	 * @since  1.0.0
+	 */
 	function maintenance_content() {
-		if ( Helpers::is_maintenance_mode() ) {
+		if ( ! Helpers::is_maintenance_mode() ) {
 			return;
 		}
-		$current_ip = isset( $_SERVER['REMOTE_ADDR'] ) ? $_SERVER['REMOTE_ADDR'] : '';
+
 		status_header( 503 );
-		$page = <<<EOT
-<!DOCTYPE html>
-<html>
-<head>
-<title>Service unavailable.</title>
-<style>
-body {
-    background-color: #e0dcdc;
-    color: #444;
-    font-family: "Open Sans",sans-serif;
-    font-size: 13px;
-    line-height: 1.4em;
-}
-body > div {
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 0 5px #888;
-    margin: 3em auto;
-    padding: 2em;
-    text-align: center;
-    width: 20%;
-    min-width: 20em;
-}
-</style>
-</head>
-<body>
-<div>
-<h1>Access Denied/Forbidden.</h1>
-<p>Your IP Address : {$current_ip}</p>
-<p>Please contact your webmaster&hellip;</p>
-</div>
-</body>
-</html>
-EOT;
+		$page = file_get_contents( Helpers::get_teamplate_path() );
 		die( $page );
 	}
 }
