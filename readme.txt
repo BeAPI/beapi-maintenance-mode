@@ -5,7 +5,7 @@ Tags: Admin, Maintenance, Under Construction, Development, 503, SEO, Offline, Mu
 Requires at least: 4.7
 Requires php: 5.6
 Tested up to: 4.9.8
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv3 or later
 License URI: https://github.com/BeAPI/beapi-maintenance-mode/blob/master/LICENSE.md
 
@@ -88,6 +88,9 @@ Just follow the referring note into the plugin documentation.
 Just follow the referring note into the plugin documentation.
 
 == Changelog ==
+
+= 1.0.2 - 05 Nov 2018 =
+- Released on wp.org
 
 = 1.0.1 - 02 Nov 2018 =
 - Add [#2](https://github.com/BeAPI/beapi-maintenance-mode/issues/2) : customize the maintenance mode template.

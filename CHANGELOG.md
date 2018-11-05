@@ -1,5 +1,8 @@
 # Changelog ##
 
+## 1.0.2 - 05 Nov 2018
+* Released on wp.org
+
 ## 1.0.1 - 02 Nov 2018
 * Add [#2](https://github.com/BeAPI/beapi-maintenance-mode/issues/2) : customize the maintenance mode template.
 * Add [#1](https://github.com/BeAPI/beapi-maintenance-mode/issues/1) : add whitelisted IPs.
