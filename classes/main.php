@@ -77,7 +77,7 @@ class Main {
 		}
 
 		status_header( 503 );
-		$page = file_get_contents( Helpers::get_teaplate_path() );
+		$page = file_get_contents( Helpers::get_template_path() );
 		die( $page );
 	}
 }

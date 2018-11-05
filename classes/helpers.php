@@ -105,7 +105,7 @@ class Helpers {
 	 *
 	 * @return string
 	 */
-	static function get_teaplate_path() {
+	static function get_template_path() {
 		$default = BEAPI_MAINTENANCE_MODE_DIR . 'templates/maintenance.php';
 
 		/**
