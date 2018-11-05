@@ -71,7 +71,7 @@ To facilitate the process of submitting an issue and quicker answer, we only use
 
 No.
 
-That is the maine "feature" of this plugin. It is ready to use and it is pretty useful when working with multisite.
+That is the main "feature" of this plugin. It is ready to use and it is pretty useful when working with multisite.
 
 = Can I use into a multisite ? =
 
@@ -83,7 +83,7 @@ You just need to activate on each site or network wide, depending on the needs.
 
 Just follow the referring note into the plugin documentation.
 
-= How can change the template displayed in case of maintenance ? =
+= How can I change the template displayed in case of maintenance ? =
 
 Just follow the referring note into the plugin documentation.
 
