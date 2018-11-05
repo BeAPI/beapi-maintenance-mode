@@ -1,6 +1,6 @@
 # Changelog ##
 
-## 1.0.2 - 05 Nov 2018
+## 1.0.3 - 05 Nov 2018
 * Released on wp.org
 
 ## 1.0.1 - 02 Nov 2018
