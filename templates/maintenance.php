@@ -1,5 +1,3 @@
-<?php
-<<<EOT
 <!DOCTYPE html>
 <html>
 <head>
