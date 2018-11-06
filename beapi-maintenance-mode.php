@@ -1,14 +1,14 @@
 <?php
 /*
  Plugin Name: BEAPI - Maintenance Mode
- Version: 1.0.3
+ Version: 1.0.4
  Plugin URI: https://github.com/BeAPI/beapi-maintenance-mode
  Description: Puts your WordPress site into maintenance mode.
  Author: Be API Technical team
  Author URI: https://beapi.fr
  Domain Path: languages
  Text Domain: beapi-maintenance-mode-mode
- Contributors: Maxime Culea, Nicolas Juen
+ Contributors: Maxime Culea, Nicolas Juen, Romain Lefort
 
  ----
 
@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Plugin constants
-define( 'BEAPI_MAINTENANCE_MODE_VERSION', '1.0.3' );
+define( 'BEAPI_MAINTENANCE_MODE_VERSION', '1.0.4' );
 define( 'BEAPI_MAINTENANCE_MODE_MIN_PHP_VERSION', '5.6' );
 
 // Plugin URL and PATH

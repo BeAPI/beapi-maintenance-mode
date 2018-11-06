@@ -1,5 +1,8 @@
 # Changelog ##
 
+## 1.0.4 - 06 Nov 2018
+* Pimp my html
+
 ## 1.0.3 - 05 Nov 2018
 * Released on wp.org
 

@@ -1,11 +1,11 @@
 === BEAPI - Maintenance Mode ===
-Contributors: beapi, maximeculea, rahe
+Contributors: beapi, maximeculea, rahe, rlefort
 Donate link: http://paypal.me/BeAPI
 Tags: Admin, Maintenance, Under Construction, Development, 503, SEO, Offline, Multisite
 Requires at least: 4.7
 Requires php: 5.6
 Tested up to: 4.9.8
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv3 or later
 License URI: https://github.com/BeAPI/beapi-maintenance-mode/blob/master/LICENSE.md
 
@@ -88,6 +88,9 @@ Just follow the referring note into the plugin documentation.
 Just follow the referring note into the plugin documentation.
 
 == Changelog ==
+
+= 1.0.3 - 06 Nov 2018 =
+- Pimp my html
 
 = 1.0.3 - 05 Nov 2018 =
 - Released on wp.org
