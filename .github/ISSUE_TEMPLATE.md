@@ -10,8 +10,7 @@ Please note:
 
 #### Version information
 
-* Plugin version : 
-* ACF version : 
+* Plugin version :
 * PHP : 
 * WordPress : 
 
