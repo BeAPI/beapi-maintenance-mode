@@ -42,7 +42,7 @@ class Helpers {
 		$whitelist_ips = apply_filters( 'beapi.maintenance_mode.whitelist_ips', [] );
 		if ( empty( $whitelist_ips ) ) {
 			// No whitelist, then everybody is allowed
-			return false;
+			return true;
 		}
 
 		// Get user IP
