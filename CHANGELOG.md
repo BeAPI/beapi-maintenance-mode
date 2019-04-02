@@ -1,5 +1,8 @@
 # Changelog ##
 
+## 1.0.5 - 02 Apr 2019
+* Add [#8](https://github.com/BeAPI/beapi-maintenance-mode/issues/8) : filter is maintenance mode helper for handle custom behaviour.
+
 ## 1.0.4 - 06 Nov 2018
 * Pimp my html
 

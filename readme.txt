@@ -5,7 +5,7 @@ Tags: Admin, Maintenance, Under Construction, Development, 503, SEO, Offline, Mu
 Requires at least: 4.7
 Requires php: 5.6
 Tested up to: 4.9.8
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPLv3 or later
 License URI: https://github.com/BeAPI/beapi-maintenance-mode/blob/master/LICENSE.md
 
@@ -89,7 +89,10 @@ Just follow the referring note into the plugin documentation.
 
 == Changelog ==
 
-= 1.0.3 - 06 Nov 2018 =
+= 1.0.5 - 02 Apr 2019 =
+- Add [#8](https://github.com/BeAPI/beapi-maintenance-mode/issues/8) : filter is maintenance mode helper for handle custom behaviour.
+
+= 1.0.4 - 06 Nov 2018 =
 - Pimp my html
 
 = 1.0.3 - 05 Nov 2018 =
