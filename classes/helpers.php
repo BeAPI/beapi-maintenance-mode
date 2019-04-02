@@ -17,7 +17,8 @@ class Helpers {
 	 * @return bool
 	 */
 	public static function is_maintenance_mode() {
-		return ! is_user_logged_in() && ! self::is_allowed_ip() && ! self::is_ms_activate();
+		$is_maintenance_mode = ! is_user_logged_in() && ! self::is_allowed_ip() && ! self::is_ms_activate();
+		return apply_filters( 'beapi.maintenance_mode.is_maintenance_mode', $is_maintenance_mode );
 	}
 
 	/**
