@@ -52,11 +52,11 @@ class Helpers {
 			// No current ip set to check against
 			return false;
 		}
-		$current_ip = preg_replace_callback( '/(\d+)/', [ __SELF__, 'maintenance_replace_ip' ], $current_ip );
+		$current_ip = preg_replace_callback( '/(\d+)/', [ 'BEAPI\Maintenance_Mode\Helpers', 'maintenance_replace_ip' ], $current_ip );
 
 		// Loop on each whitelist IP
 		foreach ( $whitelist_ips as $allowed_ip ) {
-			$allowed_ip = preg_replace_callback( '/(\d+)/', [ __SELF__, 'maintenance_replace_ip' ], $allowed_ip );
+			$allowed_ip = preg_replace_callback( '/(\d+)/', [ 'BEAPI\Maintenance_Mode\Helpers', 'maintenance_replace_ip' ], $allowed_ip );
 			// Not strict mode check because user ip and whitelist ips could not be the same type
 			if ( $current_ip == $allowed_ip ) {
 				// We found a match into the whitelist
@@ -94,7 +94,7 @@ class Helpers {
 	 *
 	 * @return string
 	 */
-	private function maintenance_replace_ip( $matches ) {
+	private static function maintenance_replace_ip( $matches ) {
 		return sprintf( "%03d", $matches[1] );
 	}
 
