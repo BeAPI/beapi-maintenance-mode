@@ -1,4 +1,6 @@
-<?php namespace BEAPI\Maintenance_Mode;
+<?php
+
+namespace BEAPI\Maintenance_Mode;
 
 trait Singleton {
 
@@ -30,7 +32,8 @@ trait Singleton {
 	 * Implement this method in your child class
 	 * If you want to have actions send at construct
 	 */
-	protected function init() {}
+	protected function init() {
+	}
 
 	/**
 	 * prevent the instance from being cloned
@@ -45,5 +48,6 @@ trait Singleton {
 	 *
 	 * @return void
 	 */
-	final private function __wakeup() {}
+	final private function __wakeup() {
+	}
 }

@@ -1,4 +1,6 @@
-<?php namespace BEAPI\Maintenance_Mode;
+<?php
+
+namespace BEAPI\Maintenance_Mode;
 
 // don't load directly
 if ( ! defined( 'ABSPATH' ) ) {
@@ -33,18 +35,18 @@ class Main {
 	 * Change the header if maintenance mode
 	 *
 	 * @param $status_header
-	 * @param $header
-	 * @param $text
+	 * @param $code
+	 * @param $description
 	 * @param $protocol
 	 *
-	 * @author Maxime CULEA
+	 * @return string
 	 * @since  1.0.0
 	 *
-	 * @return string
+	 * @author Maxime CULEA
 	 */
-	function maintenance_header( $status_header, $header, $text, $protocol ) {
+	public function maintenance_header( $status_header, $code, $description, $protocol ) {
 		if ( ! Helpers::is_maintenance_mode() ) {
-			return $protocol;
+			return $status_header;
 		}
 
 		return "$protocol 503 Service Unavailable";
@@ -56,7 +58,7 @@ class Main {
 	 * @author Maxime CULEA
 	 * @since  1.0.0
 	 */
-	function maintenance_feed() {
+	public function maintenance_feed() {
 		if ( ! Helpers::is_maintenance_mode() ) {
 			return;
 		}
@@ -71,7 +73,7 @@ class Main {
 	 * @author Maxime CULEA
 	 * @since  1.0.0
 	 */
-	function maintenance_content() {
+	public function maintenance_content() {
 		if ( ! Helpers::is_maintenance_mode() ) {
 			return;
 		}

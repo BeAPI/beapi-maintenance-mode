@@ -35,7 +35,7 @@
 		}
 		.denied p.icon {
 			font-size: 30px;
-    		margin-bottom: 0px;
+    		margin-bottom: 0;
 		}
 	</style>
 </head>

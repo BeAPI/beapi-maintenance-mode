@@ -1,5 +1,9 @@
 # Changelog ##
 
+## 1.0.6 - 04 Mar 2020
+* Fixed [#9](https://github.com/BeAPI/beapi-maintenance-mode/issues/9) Fix PHP warnings
+* Code refactoring
+
 ## 1.0.5 - 02 Apr 2019
 * Add [#8](https://github.com/BeAPI/beapi-maintenance-mode/issues/8) : filter is maintenance mode helper for handle custom behaviour.
 

@@ -1,4 +1,6 @@
-<?php namespace BEAPI\Maintenance_Mode;
+<?php
+
+namespace BEAPI\Maintenance_Mode;
 
 class Helpers {
 
@@ -12,22 +14,23 @@ class Helpers {
 	 * - current ip is from whitelist
 	 * - it is multisite activation process
 	 *
+	 * @return bool
 	 * @author Maxime CULEA
 	 *
-	 * @return bool
 	 */
 	public static function is_maintenance_mode() {
 		$is_maintenance_mode = ! is_user_logged_in() && ! self::is_allowed_ip() && ! self::is_ms_activate();
+
 		return apply_filters( 'beapi.maintenance_mode.is_maintenance_mode', $is_maintenance_mode );
 	}
 
 	/**
 	 * Check if the current IP is in whitelist
 	 *
-	 * @author Maxime CULEA
+	 * @return bool
 	 * @since  1.0.0
 	 *
-	 * @return bool
+	 * @author Maxime CULEA
 	 */
 	public static function is_allowed_ip() {
 		/**
@@ -35,14 +38,13 @@ class Helpers {
 		 *
 		 * @params array $whitelist_ips : Array of allowed ips
 		 *
-		 * @author Maxime CULEA
+		 * @return array
 		 * @since  1.0.0
 		 *
-		 * @return array
+		 * @author Maxime CULEA
 		 */
 		$whitelist_ips = apply_filters( 'beapi.maintenance_mode.whitelist_ips', [] );
-		if ( empty( $whitelist_ips ) ) {
-			// No whitelist, then everybody is allowed
+		if ( empty( $whitelist_ips ) ) { // No whitelist, then everybody is allowed
 			return true;
 		}
 
@@ -52,13 +54,13 @@ class Helpers {
 			// No current ip set to check against
 			return false;
 		}
-		$current_ip = preg_replace_callback( '/(\d+)/', [ __SELF__, 'maintenance_replace_ip' ], $current_ip );
+		$current_ip = preg_replace_callback( '/(\d+)/', [ __CLASS__, 'maintenance_replace_ip' ], $current_ip );
 
 		// Loop on each whitelist IP
 		foreach ( $whitelist_ips as $allowed_ip ) {
-			$allowed_ip = preg_replace_callback( '/(\d+)/', [ __SELF__, 'maintenance_replace_ip' ], $allowed_ip );
+			$allowed_ip = preg_replace_callback( '/(\d+)/', [ __CLASS__, 'maintenance_replace_ip' ], $allowed_ip );
 			// Not strict mode check because user ip and whitelist ips could not be the same type
-			if ( $current_ip == $allowed_ip ) {
+			if ( $current_ip === $allowed_ip ) {
 				// We found a match into the whitelist
 				return true;
 			}
@@ -71,10 +73,10 @@ class Helpers {
 	/**
 	 * Check if during multisite process to avoid not maintenance mode or not
 	 *
-	 * @author Maxime CULEA
+	 * @return bool
 	 * @since  1.0.0
 	 *
-	 * @return bool
+	 * @author Maxime CULEA
 	 */
 	public static function is_ms_activate() {
 		if ( empty( $_SERVER['SCRIPT_NAME'] ) ) {
@@ -89,38 +91,38 @@ class Helpers {
 	 *
 	 * @param $matches
 	 *
-	 * @author Nicolas Juen
+	 * @return string
 	 * @since  1.0.0
 	 *
-	 * @return string
+	 * @author Nicolas Juen
 	 */
-	private function maintenance_replace_ip( $matches ) {
-		return sprintf( "%03d", $matches[1] );
+	private static function maintenance_replace_ip( $matches ) {
+		return sprintf( '%03d', $matches[1] );
 	}
 
 	/**
 	 * Get the maintenance template path
 	 *
-	 * @author Maxime CULEA
+	 * @return string
 	 * @since  1.0.0
 	 *
-	 * @return string
+	 * @author Maxime CULEA
 	 */
-	static function get_template_path() {
+	public static function get_template_path() {
 		$default = BEAPI_MAINTENANCE_MODE_DIR . 'templates/maintenance.php';
 
 		/**
 		 * Filter maintenance template path to add a custom one
 		 *
-		 * @params string $whitelist_ips : The path to the custom template
-		 *
-		 * @author Maxime CULEA
-		 * @since  1.0.0
+		 * @params string $default : The path to the custom template
 		 *
 		 * @return array
+		 * @since  1.0.0
+		 *
+		 * @author Maxime CULEA
 		 */
 		$template = apply_filters( 'beapi.maintenance_mode.template.path', $default );
-		if ( empty( $template ) || ! file_exists( $template ) ) {
+		if ( empty( $template ) || ! is_file( $template ) ) {
 			$template = $default;
 		}
 
