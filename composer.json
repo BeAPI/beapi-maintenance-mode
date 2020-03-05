@@ -25,5 +25,20 @@
 	"license":"GPL-3.0+",
 	"require":{
 		"php":">=5.6.0"
+	},
+	"require-dev": {
+		"sensiolabs/security-checker": "^6.0",
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.6.2",
+		"squizlabs/php_codesniffer": "^3.5",
+		"wp-coding-standards/wpcs": "^2.2",
+		"phpro/grumphp-shim": "^0.18.0",
+		"phpcompatibility/php-compatibility": "^9.3",
+		"vimeo/psalm": "^3.9",
+		"jakub-onderka/php-parallel-lint": "^1.0"
+	},
+	"scripts": {
+		"cs": "./vendor/bin/phpcs",
+		"cbf": "./vendor/bin/phpcbf",
+		"psalm": "./vendor/bin/psalm"
 	}
 }
