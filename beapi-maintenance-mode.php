@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Plugin constants
 define( 'BEAPI_MAINTENANCE_MODE_VERSION', '1.0.5' );
-define( 'BEAPI_MAINTENANCE_MODE_MIN_PHP_VERSION', '5.6' );
+define( 'BEAPI_MAINTENANCE_MODE_MIN_PHP_VERSION', '7.0' );
 
 // Plugin URL and PATH
 define( 'BEAPI_MAINTENANCE_MODE_URL', plugin_dir_url( __FILE__ ) );
