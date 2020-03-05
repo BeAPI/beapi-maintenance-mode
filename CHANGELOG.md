@@ -1,5 +1,10 @@
 # Changelog ##
 
+## 1.0.7 - 05 Mar 2020
+* Add Q/A tools
+* Add github workflow
+* Fix errors from phpCS and psalm
+
 ## 1.0.6 - 04 Mar 2020
 * Fixed [#9](https://github.com/BeAPI/beapi-maintenance-mode/issues/9) Fix PHP warnings
 * Code refactoring
