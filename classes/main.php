@@ -80,6 +80,6 @@ class Main {
 
 		status_header( 503 );
 		$page = file_get_contents( Helpers::get_template_path() );
-		die( $page );
+		die( $page ); // phpcs:ignore
 	}
 }
