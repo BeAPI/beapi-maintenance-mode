@@ -5,12 +5,12 @@ namespace BEAPI\Maintenance_Mode;
 trait Singleton {
 
 	/**
-	 * @var self
+	 * @var static
 	 */
 	protected static $instance;
 
 	/**
-	 * @return self
+	 * @return static
 	 */
 	final public static function get_instance() {
 		/**
@@ -20,13 +20,13 @@ trait Singleton {
 			self::$instance = new static();
 		}
 
-		return self::$instance;
+		return static::$instance;
 	}
 
 	/**
 	 * Constructor protected from the outside
 	 */
-	final private function __construct() {
+	private function __construct() {
 		$this->init();
 	}
 
@@ -34,6 +34,8 @@ trait Singleton {
 	 * Add init function by default
 	 * Implement this method in your child class
 	 * If you want to have actions send at construct
+	 *
+	 * @return void
 	 */
 	protected function init() {
 	}
@@ -41,16 +43,36 @@ trait Singleton {
 	/**
 	 * prevent the instance from being cloned
 	 *
-	 * @return void
+	 * @throws \LogicException
 	 */
-	final private function __clone() {
+	final public function __clone() {
+		throw new \LogicException( 'A singleton must not be cloned!' );
+	}
+
+	/**
+	 * prevent from being serialized
+	 *
+	 * @throws \LogicException
+	 */
+	final public function __sleep() {
+		throw new \LogicException( 'A singleton must not be serialized!' );
 	}
 
 	/**
 	 * prevent from being unserialized
 	 *
+	 * @throws \LogicException
+	 */
+	final public function __wakeup() {
+		throw new \LogicException( 'A singleton must not be unserialized!' );
+	}
+
+	/**
+	 * Destruct your instance
+	 *
 	 * @return void
 	 */
-	final private function __wakeup() {
+	final public static function destroy() {
+		static::$instance = null;
 	}
 }
