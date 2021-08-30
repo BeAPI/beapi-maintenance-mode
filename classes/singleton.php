@@ -13,6 +13,9 @@ trait Singleton {
 	 * @return self
 	 */
 	final public static function get_instance() {
+		/**
+		 * @psalm-suppress UnsafeInstantiation
+		 */
 		if ( is_null( self::$instance ) ) {
 			self::$instance = new static();
 		}
