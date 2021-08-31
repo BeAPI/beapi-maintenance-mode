@@ -1,5 +1,10 @@
 # Changelog ##
 
+## 1.0.8 - 31 Aug 2021
+* Update Singleton for PHP 8.0
+* Update composer dependencies
+* Update GrumPHP config
+
 ## 1.0.7 - 05 Mar 2020
 * Add Q/A tools
 * Add github workflow
