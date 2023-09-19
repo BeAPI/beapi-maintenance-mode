@@ -53,8 +53,8 @@ To facilitate the process of submitting an issue and quicker answer, we only use
 
 # Requirements
 
-- Tested up to 4.9.8
-- PHP 5.6+
+- Tested up to 6.3.1
+- PHP 7.0+
 
 # WordPress
 
