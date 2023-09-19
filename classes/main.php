@@ -17,6 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * Class Main
  * @package BEA\Maintenance_Mode
+ * @return void
  */
 class Main {
 	use Singleton;
@@ -42,10 +43,10 @@ class Main {
 	/**
 	 * Change the header if maintenance mode
 	 *
-	 * @param $status_header
-	 * @param $code
-	 * @param $description
-	 * @param $protocol
+	 * @param string $status_header
+	 * @param int $code
+	 * @param string $description
+	 * @param string $protocol
 	 *
 	 * @return string
 	 * @since  1.0.0
@@ -81,7 +82,7 @@ class Main {
 	 *
 	 * @param $access
 	 *
-	 * @return WP_Error|null|boolean
+	 * @return \WP_Error|null|boolean
 	 */
 	public function disable_rest( $access ) {
 		if ( ! Helpers::is_maintenance_mode() ) {

@@ -61,7 +61,10 @@ if ( version_compare( PHP_VERSION, BEAPI_MAINTENANCE_MODE_MIN_PHP_VERSION, '<' )
 require_once BEAPI_MAINTENANCE_MODE_DIR . 'autoload.php';
 
 add_action( 'plugins_loaded', 'plugins_loaded_beapi_maintenance_mode_plugin' );
-/** Init the plugin */
+/**
+ * Init the plugin
+ * @return void
+ */
 function plugins_loaded_beapi_maintenance_mode_plugin() {
 	// Client
 	Main::get_instance();
