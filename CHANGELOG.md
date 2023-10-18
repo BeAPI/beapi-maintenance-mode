@@ -1,5 +1,9 @@
 # Changelog ##
 
+## 2.0.0 - 18 Oct 2023
+* Breaking change : Everything is blocked by design on plugin creation, you should open IPs on code with beapi.maintenance_mode.whitelist_ips filter
+
+
 ## 1.0.8 - 31 Aug 2021
 * Update Singleton for PHP 8.0
 * Update composer dependencies
