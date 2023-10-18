@@ -19,7 +19,19 @@ class Helpers {
 	 *
 	 */
 	public static function is_maintenance_mode() {
-		$is_maintenance_mode = ! is_user_logged_in() && ! self::is_allowed_ip() && ! self::is_ms_activate();
+		$is_maintenance_mode = true;
+
+		if ( is_user_logged_in() ) {
+			$is_maintenance_mode = false;
+		}
+
+		if ( self::is_allowed_ip() ) {
+			$is_maintenance_mode = false;
+		}
+
+		if ( self::is_ms_activate() ) {
+			$is_maintenance_mode = false;
+		}
 
 		return apply_filters( 'beapi.maintenance_mode.is_maintenance_mode', $is_maintenance_mode );
 	}
@@ -44,8 +56,8 @@ class Helpers {
 		 * @author Maxime CULEA
 		 */
 		$whitelist_ips = apply_filters( 'beapi.maintenance_mode.whitelist_ips', [] );
-		if ( empty( $whitelist_ips ) ) { // No whitelist, then everybody is allowed
-			return true;
+		if ( empty( $whitelist_ips ) ) { // No whitelist, then nobody is allowed
+			return false;
 		}
 
 		// Get user IP

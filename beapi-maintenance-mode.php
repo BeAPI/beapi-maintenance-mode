@@ -30,6 +30,8 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
 // don't load directly
+use BEAPI\Maintenance_Mode\Main;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
 }
@@ -59,8 +61,11 @@ if ( version_compare( PHP_VERSION, BEAPI_MAINTENANCE_MODE_MIN_PHP_VERSION, '<' )
 require_once BEAPI_MAINTENANCE_MODE_DIR . 'autoload.php';
 
 add_action( 'plugins_loaded', 'plugins_loaded_beapi_maintenance_mode_plugin' );
-/** Init the plugin */
+/**
+ * Init the plugin
+ * @return void
+ */
 function plugins_loaded_beapi_maintenance_mode_plugin() {
 	// Client
-	\BEAPI\Maintenance_Mode\Main::get_instance();
+	Main::get_instance();
 }

@@ -37,8 +37,8 @@ If you are a developer and the plugin is not installed, you could also just use 
 
 # Requirements
 
-- Tested up to 4.9.8
-- PHP 7+
+- Tested up to 6.3.1
+- PHP 7.0+
 
 # Installation
 
