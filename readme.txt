@@ -89,6 +89,9 @@ Just follow the referring note into the plugin documentation.
 
 == Changelog ==
 
+= 2.0.0 - 18 Oct 2023 =
+- Breaking change : Everything is blocked by design on plugin creation, you should open IPs on code with beapi.maintenance_mode.whitelist_ips filter
+
 = 1.0.5 - 02 Apr 2019 =
 - Add [#8](https://github.com/BeAPI/beapi-maintenance-mode/issues/8) : filter is maintenance mode helper for handle custom behaviour.
 
