@@ -4,7 +4,7 @@
 
 This simple and lightweight WordPress maintenance plugin puts your WordPress site into maintenance mode.
 
-![BEAPI - Maintenance Mode](.wordpress.org/screenshot-1.jpg)
+![BEAPI - Maintenance Mode](.wordpress.org/screenshot-1.png)
 
 The <b>major advantage</b>, compared to existing plugins, is that there are no options, it is <b>ready to use</b>!
 
