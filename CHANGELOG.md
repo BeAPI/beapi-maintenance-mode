@@ -1,5 +1,9 @@
 # Changelog ##
 
+## 2.1.0 - 20 Sept 2024
+
+* New HTML template by default with conditional lang JS
+
 ## 2.0.0 - 18 Oct 2023
 * Breaking change : Everything is blocked by design on plugin creation, you should open IPs on code with beapi.maintenance_mode.whitelist_ips filter
 

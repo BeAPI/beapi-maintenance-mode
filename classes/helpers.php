@@ -59,7 +59,7 @@ class Helpers {
 		if ( empty( $whitelist_ips ) ) { // No whitelist, then nobody is allowed
 			return false;
 		}
-
+		
 		// Get user IP
 		$current_ip = isset( $_SERVER['REMOTE_ADDR'] ) ? $_SERVER['REMOTE_ADDR'] : '';
 		if ( empty( $current_ip ) ) {
