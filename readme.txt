@@ -89,6 +89,10 @@ Just follow the referring note into the plugin documentation.
 
 == Changelog ==
 
+= 2.1.1 - 17 Feb 2026 =
+- Fix authentication check for REST API requests by adding `is_user_authenticated()` method
+- Authenticated users can now access the site via REST API even when maintenance mode is active
+
 = 2.0.0 - 18 Oct 2023 =
 - Breaking change : Everything is blocked by design on plugin creation, you should open IPs on code with beapi.maintenance_mode.whitelist_ips filter
 

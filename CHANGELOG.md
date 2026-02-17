@@ -1,5 +1,11 @@
 # Changelog ##
 
+## 2.1.1 - 17 Feb 2026
+
+* Fix authentication check for REST API requests by adding `is_user_authenticated()` method
+* Authenticated users can now access the site via REST API even when maintenance mode is active
+
+
 ## 2.1.0 - 20 Sept 2024
 
 * New HTML template by default with conditional lang JS
